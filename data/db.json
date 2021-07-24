@@ -1,0 +1,46 @@
+{
+  "books": [
+    {
+      "title": "title1",
+      "author": "author1",
+      "category": "History",
+      "ISBN": 12345,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "title2",
+      "author": "author2",
+      "category": "Westerns",
+      "ISBN": 23456
+    },
+    {
+      "title": "title3",
+      "author": "author3",
+      "category": "Travel",
+      "ISBN": 34567,
+      "id": 3
+    },
+    {
+      "title": "title4",
+      "author": "author4",
+      "category": "Romance",
+      "ISBN": 45678,
+      "id": 4
+    },
+    {
+      "title": "title6",
+      "author": "author6",
+      "category": "Romance",
+      "ISBN": 45678,
+      "id": 6
+    },
+    {
+      "id": 5,
+      "title": "title7",
+      "author": "author7",
+      "category": "Travel",
+      "ISBN": "54321"
+    }
+  ]
+}
