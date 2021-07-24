@@ -6,6 +6,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+
+### `npm json-server`
+
+Runs the json-server.\
+Open [http://localhost:3001/books](http://localhost:3001/books) to view it in the browser.
+Edit script "json-server" for additional settings...
+
 ### `npm start`
 
 Runs the app in the development mode.\
