@@ -10,13 +10,14 @@ export const useBook = () => {
 };
 
 export const Provider = ({ children }) => {
+  const baseUrl = "http://localhost:3001/books";
   const history = useHistory();
   const [books, setBooks] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     async function fetchData() {
-      const resp = await axios.get("http://localhost:3001/books");
+      const resp = await axios.get(baseUrl);
       setBooks(resp.data);
       setLoading(false);
     }
@@ -24,7 +25,7 @@ export const Provider = ({ children }) => {
   }, []);
 
   const editBook = (id, bookTitle, authorName, category, ISBN) => {
-    setLoading(true)
+    setLoading(true);
     const data = {
       title: bookTitle,
       author: authorName,
@@ -42,19 +43,19 @@ export const Provider = ({ children }) => {
       })
     );
     axios
-      .put(`http://localhost:3001/books/${id}`, { ...data })
+      .put(baseUrl + `/${id}`, { ...data })
       .then((resp) => {
-        setLoading(false)
-        console.log(resp.data);
+        setLoading(false);
+        console.log("db recorded successfully:", resp.data);
         history.push("/");
       })
       .catch((error) => {
-        console.log(error);
+        console.log("error db record:", error);
       });
   };
 
   const addBook = (bookTitle, authorName, category, ISBN) => {
-    setLoading(true)
+    setLoading(true);
     const data = {
       title: bookTitle,
       author: authorName,
@@ -66,18 +67,18 @@ export const Provider = ({ children }) => {
     for (let i = 1; i < books.length + 2; i++) {
       if (!id.includes(i)) {
         axios
-          .post(`http://localhost:3001/books`, {
+          .post(baseUrl, {
             id: i,
             ...data,
           })
           .then((resp) => {
-            setLoading(false)
+            setLoading(false);
             setBooks([...books, resp.data]);
-            console.log(...books, resp.data);
+            console.log("db updated:", ...books, resp.data);
             history.push("/");
           })
           .catch((error) => {
-            console.log(error);
+            console.log("db updated error:",error);
           });
       }
     }
@@ -87,7 +88,7 @@ export const Provider = ({ children }) => {
     setBooks(books.filter((book) => book.id !== id));
     async function delData() {
       try {
-        await axios.delete(`http://localhost:3001/books/${id}`);
+        await axios.delete(baseUrl + `/${id}`);
       } catch (err) {
         console.log("delete error from db:", err);
       }

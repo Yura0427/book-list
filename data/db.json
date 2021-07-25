@@ -34,13 +34,6 @@
       "category": "Romance",
       "ISBN": 45678,
       "id": 6
-    },
-    {
-      "id": 5,
-      "title": "title7",
-      "author": "author7",
-      "category": "Travel",
-      "ISBN": "54321"
     }
   ]
 }
